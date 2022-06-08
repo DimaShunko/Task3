@@ -47,19 +47,24 @@ public class LinkedList {
         }
     }
 
-    public void remove(Object data){
+    public void remove(int index) throws LinkedIndexOutOfBoundsException {
         Node currentNode = head;
         Node pred = null;
-        while (currentNode.next != null){
-            if(currentNode.data == data){
-                if(currentNode == head){
-                    head = currentNode.next;
-                }else{
-                    pred.next = currentNode.next;
-                }
-            }
+        int i = 0;
+        while (i != index && currentNode.next != null){
             pred = currentNode;
             currentNode = currentNode.next;
+            i++;
+        }
+
+        if(i == index) {
+            if(currentNode == head){
+                head = currentNode.next;
+            }else{
+                pred.next = currentNode.next;
+            }
+        }else{
+            throw new LinkedIndexOutOfBoundsException("Выход за границу LinkedList");
         }
     }
 
