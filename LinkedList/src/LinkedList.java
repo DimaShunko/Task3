@@ -28,7 +28,7 @@ public class LinkedList {
         }
     }
 
-    public Object get(int index){
+    public Object get(int index) throws LinkedIndexOutOfBoundsException {
         Node currentNode = head;
         int i = 0;
         if(currentNode == null){
@@ -39,10 +39,11 @@ public class LinkedList {
                 i++;
             }
         }
+
         if(i==index){
             return currentNode.data;
         }else {
-            return null;
+            throw new LinkedIndexOutOfBoundsException("Выход за границу LinkedList");
         }
     }
 
@@ -63,14 +64,15 @@ public class LinkedList {
     }
 
     public void print(){
-        Node currenNode = head;
-        if(currenNode == null){
+        Node currentNode = head;
+
+        if(currentNode == null){
             System.out.println("Списко пуст");
         }else {
-            System.out.println(currenNode.data);
-            while (currenNode.next != null){
-                currenNode = currenNode.next;
-                System.out.println(currenNode.data);
+            System.out.println(currentNode.data);
+            while (currentNode.next != null){
+                currentNode = currentNode.next;
+                System.out.println(currentNode.data);
             }
         }
     }
