@@ -7,8 +7,9 @@ public class Main {
     public static void main(String[] args){
         Map<String, Integer> dictionary = new HashMap<>();
         String str = "";
+        String fileName = args[0];
 
-        try(FileReader reader = new FileReader("test.txt"))
+        try(FileReader reader = new FileReader(fileName))
         {
             int ch;
             while((ch=reader.read())!=-1){
