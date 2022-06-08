@@ -6,13 +6,13 @@ import java.util.TreeMap;
 public class Main {
     public static void main(String[] args){
         Map<String, Integer> dictionary = new HashMap<>();
+        String str = "";
 
         try(FileReader reader = new FileReader("test.txt"))
         {
             int ch;
-            String str = "";
             while((ch=reader.read())!=-1){
-                if(Character.isLetter((char) ch)){
+                if(Character.isLetter((char) ch) || (char) ch == '-'){
                     str += (char) ch;
                 }else if(str != ""){
                     str = str.toUpperCase();
@@ -27,6 +27,15 @@ public class Main {
         }
         catch(IOException ex){
             System.out.println(ex.getMessage());
+        }
+
+        if(str != "") {
+            str = str.toUpperCase();
+            if (dictionary.containsKey(str)) {
+                dictionary.put(str, dictionary.get(str) + 1);
+            } else {
+                dictionary.put(str, 1);
+            }
         }
 
         TreeMap<String, Integer> sortDictionary = new TreeMap<>(dictionary);
