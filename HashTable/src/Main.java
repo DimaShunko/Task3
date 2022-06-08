@@ -7,6 +7,10 @@ public class Main {
     public static void main(String[] args){
         Map<String, Integer> dictionary = new HashMap<>();
         String str = "";
+        if ( args.length == 0 ) {
+            System.out.println( "Укажите название файла в командной строке" ) ;
+            System.exit(0);
+        }
         String fileName = args[0];
 
         try(FileReader reader = new FileReader(fileName))
