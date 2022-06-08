@@ -11,16 +11,16 @@ public class Main {
         list.add(0);
         list.add(5);
         list.add(8);
-//        try {
-//            n = list.get(4);
-//            //System.out.println(n);
-//        }catch (LinkedIndexOutOfBoundsException e) {
-//            System.err.println(e.getMessage());
-//            System.exit(0);
-//        }
-//
-//        n = list.get(11);
-//        System.out.println(n);
+        try {
+            n = list.get(4);
+            //System.out.println(n);
+        }catch (LinkedIndexOutOfBoundsException e) {
+            System.err.println(e.getMessage());
+            System.exit(0);
+        }
+
+        n = list.get(11);
+        System.out.println(n);
 
         list.remove(3);
 
