@@ -17,56 +17,60 @@ public class LinkedList {
 
     public void add(Object data){
         Node node = new Node(data);
-        Node firstNode = head;
-        if(firstNode == null){
+        Node currentNode = head;
+        if(currentNode == null){
             head = node;
         }else{
-            while (firstNode.next != null){
-                firstNode = firstNode.next;
+            while (currentNode.next != null){
+                currentNode = currentNode.next;
             }
-            firstNode.next = node;
+            currentNode.next = node;
         }
     }
 
     public Object get(int index){
-        Node firstNode = head;
-        if(firstNode == null){
+        Node currentNode = head;
+        int i = 0;
+        if(currentNode == null){
             System.out.println("Cписок пуст");
         }else{
-            int i = 0;
-            while (i != index && firstNode.next != null){
-                firstNode = firstNode.next;
+            while (i != index && currentNode.next != null){
+                currentNode = currentNode.next;
                 i++;
             }
         }
-        return firstNode.data;
+        if(i==index){
+            return currentNode.data;
+        }else {
+            return null;
+        }
     }
 
     public void remove(Object data){
-        Node firstNode = head;
+        Node currentNode = head;
         Node pred = null;
-        while (firstNode.next != null){
-            if(firstNode.data == data){
-                if(firstNode == head){
-                    head = firstNode.next;
+        while (currentNode.next != null){
+            if(currentNode.data == data){
+                if(currentNode == head){
+                    head = currentNode.next;
                 }else{
-                    pred.next = firstNode.next;
+                    pred.next = currentNode.next;
                 }
             }
-            pred = firstNode;
-            firstNode = firstNode.next;
+            pred = currentNode;
+            currentNode = currentNode.next;
         }
     }
 
     public void print(){
-        Node firstNode = head;
-        if(firstNode == null){
+        Node currenNode = head;
+        if(currenNode == null){
             System.out.println("Списко пуст");
         }else {
-            System.out.println(firstNode.data);
-            while (firstNode.next != null){
-                firstNode = firstNode.next;
-                System.out.println(firstNode.data);
+            System.out.println(currenNode.data);
+            while (currenNode.next != null){
+                currenNode = currenNode.next;
+                System.out.println(currenNode.data);
             }
         }
     }

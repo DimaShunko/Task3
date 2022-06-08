@@ -11,6 +11,9 @@ public class Main {
         list.add(5);
         list.add(8);
 
+        n = list.get(11);
+        System.out.println(n);
+
         n = list.get(4);
         System.out.println(n);
 
