@@ -1,6 +1,8 @@
 import org.junit.Test;
 
+import static junit.framework.TestCase.assertNotNull;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 
 public class Tests {
     private LinkedList list = new LinkedList();
@@ -24,8 +26,12 @@ public class Tests {
 
     @Test
     public void getTest() throws LinkedIndexOutOfBoundsException {
-        Object n = list.get(1);
-        assertEquals(7,n);
+        //Object n = list.get(1);
+
+        Throwable thrown = assertThrows(LinkedIndexOutOfBoundsException.class, () -> {
+            list.get(11);
+        });
+        assertNotNull(thrown.getMessage());
     }
 
     @Test
